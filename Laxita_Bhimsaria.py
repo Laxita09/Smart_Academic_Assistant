@@ -1,9 +1,8 @@
 import streamlit as st
+# -------------------- Page Configuration --------------------
 st.set_page_config(page_title="Smart Academic Assistant", layout="centered")
 
 import sys
-st.write("🧪 Python version:", sys.version)
-
 try:
     import pysqlite3
     sys.modules["sqlite3"] = sys.modules.pop("pysqlite3")
