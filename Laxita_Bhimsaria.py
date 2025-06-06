@@ -1,7 +1,13 @@
 import sys
 import streamlit as st
-
 st.write("🧪 Python version:", sys.version)
+
+try:
+    import pysqlite3
+    sys.modules["sqlite3"] = sys.modules.pop("pysqlite3")
+except ImportError:
+    st.warning("pysqlite3 could not be loaded. ChromaDB may not work.")
+
 
 from urllib import response
 import tempfile
