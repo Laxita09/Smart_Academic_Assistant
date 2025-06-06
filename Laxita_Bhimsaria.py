@@ -1,6 +1,10 @@
+import sys
+import streamlit as s
+
+st.write("🧪 Python version:", sys.version)
+
 from urllib import response
 import tempfile
-import streamlit as st
 import os
 from dotenv import load_dotenv
 from langchain_community.document_loaders import PyMuPDFLoader , TextLoader
