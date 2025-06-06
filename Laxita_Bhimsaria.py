@@ -43,8 +43,9 @@ if st.button("Get Answer"):
         # TODO:
         # 1. Load documents using LangChain document loaders
 
-
+         # Rebuild trigger
         all_docs = []
+        # Rebuild trigger
 
         for file in uploaded_files:
             file_name = file.name
@@ -73,6 +74,8 @@ if st.button("Get Answer"):
 
 
         # 2. Split documents using RecursiveCharacterTextSplitter or similar
+        # Rebuild trigger
+
 
         splitter = RecursiveCharacterTextSplitter(
             chunk_size=100,
@@ -84,6 +87,8 @@ if st.button("Get Answer"):
 
 
         # 3. Create embeddings and store in vector store (e.g., FAISS, Chroma)
+        # Rebuild trigger
+
 
         vector_store = Chroma(
             embedding_function=HuggingFaceEmbeddings(model_name = 'sentence-transformers/all-MiniLM-L6-v2'),
@@ -95,6 +100,8 @@ if st.button("Get Answer"):
 
 
         # # 4. Retrieve relevant chunks based on the question
+        # Rebuild trigger
+
 
         retriever = vector_store.as_retriever(search_type="similarity", search_kwargs={"k": 4})
 
@@ -104,6 +111,8 @@ if st.button("Get Answer"):
 
 
         #using vector store to find similarity score
+        # Rebuild trigger
+
 
         similarity_score = vector_store.similarity_search_with_score(query = question)
         
@@ -113,6 +122,8 @@ if st.button("Get Answer"):
 
         
         # 5. Use Groq-hosted LLM via LangChain (e.g., Mixtral, Gemma, Llama3)
+        # Rebuild trigger
+
 
         llm = ChatGroq(
             api_key = os.getenv("GROQ_API_KEY"),
@@ -140,6 +151,8 @@ if st.button("Get Answer"):
 
 
         # 6. Use Output Parser to format structured response
+        # Rebuild trigger
+
 
         parser = StrOutputParser()
 
@@ -162,6 +175,8 @@ if st.button("Get Answer"):
         #     "source_document": "Document Name",
         #     "confidence_score": "0.93"
         # }
+        # Rebuild trigger
+
         
         st.subheader("📄 Answer:")
         st.json(response)
@@ -178,6 +193,8 @@ col1, col2, col3 = st.columns(3)
 with col1:
     if st.button("Summarize Document"):
         # TODO: Implement SummarizeDocumentTool using LangChain agent
+        # Rebuild trigger
+
 
         all_docs = st.session_state['all_docs']
         context_text = "\n\n".join(doc.page_content for doc in all_docs)
@@ -212,6 +229,8 @@ with col1:
 with col2:
     if st.button("Generate MCQs"):
         # TODO: Implement GenerateMCQsTool using LangChain agent
+        # Rebuild trigger
+
 
         all_docs = st.session_state['all_docs']
         context_text = "\n\n".join(doc.page_content for doc in all_docs)
@@ -249,6 +268,8 @@ with col2:
 with col3:
     if st.button("Topic-wise Explanation"):
         # TODO: Implement TopicWiseExplanationTool using LangChain agent
+        # Rebuild trigger
+
 
         all_docs = st.session_state['all_docs']
         context_text = "\n\n".join(doc.page_content for doc in all_docs)
@@ -283,5 +304,7 @@ with col3:
 
 
 # -------------------- Footer --------------------
+# Rebuild trigger
+
 st.markdown("---")
 st.caption("Mentox Bootcamp · Final Capstone Project · Phase 1")
