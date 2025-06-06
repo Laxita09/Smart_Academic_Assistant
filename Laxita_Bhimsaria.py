@@ -1,5 +1,7 @@
-import sys
 import streamlit as st
+st.set_page_config(page_title="Smart Academic Assistant", layout="centered")
+
+import sys
 st.write("🧪 Python version:", sys.version)
 
 try:
@@ -7,7 +9,6 @@ try:
     sys.modules["sqlite3"] = sys.modules.pop("pysqlite3")
 except ImportError:
     st.warning("pysqlite3 could not be loaded. ChromaDB may not work.")
-
 
 from urllib import response
 import tempfile
@@ -28,7 +29,7 @@ hf_token = os.getenv("HUGGINGFACEHUB_API_TOKEN")
 
 
 # -------------------- Page Configuration --------------------
-st.set_page_config(page_title="Smart Academic Assistant", layout="centered")
+#st.set_page_config(page_title="Smart Academic Assistant", layout="centered")
 
 # -------------------- Title --------------------
 st.title("📚 Smart Academic Assistant")
