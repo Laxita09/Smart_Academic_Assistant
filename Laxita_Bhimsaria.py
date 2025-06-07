@@ -196,7 +196,7 @@ if st.button("Get Answer"):
 
 # -------------------- Bonus Section: Agent Tools --------------------
 st.markdown("---")
-st.subheader("🧠 Bonus Tools ( Optional )")
+st.subheader("🧠 Extra Tools ")
 
 col1, col2, col3 = st.columns(3)
 
