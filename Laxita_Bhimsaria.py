@@ -191,7 +191,7 @@ if st.button("Get Answer"):
         st.subheader("📄 Answer:")
         st.json(response)
 
-        st.info("Implement your RAG logic above and display the final structured response here.")
+        #st.info("Implement your RAG logic above and display the final structured response here.")
 
 
 # -------------------- Bonus Section: Agent Tools --------------------
@@ -317,4 +317,4 @@ with col3:
 # Rebuild trigger
 
 st.markdown("---")
-st.caption("Mentox Bootcamp · Final Capstone Project · Phase 1")
+#st.caption("Mentox Bootcamp · Final Capstone Project · Phase 1")
